@@ -1,0 +1,73 @@
+.custom-card {
+  transition: transform .2s;
+  border-radius: 15px;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+}
+.container-fluid {
+  color: white;
+}
+.bg-orange {
+  background: linear-gradient(180deg, #EB5C29, #FF9902);
+ 
+}
+.btn-custom {
+  background-color: #007BFF;
+  border-color: #007BFF;
+  color: white;
+  transition: background-color .2s, border-color .2s;
+  border-radius: 15px;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.container-fluid {
+  color: white;
+
+}
+.btn-custom {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.btn-outline-primary.my-2.my-sm-0 {
+  color: white; 
+  border-color: white; 
+  font-size: 1.5rem; 
+  padding: 10px 20px; 
+}
+
+.btn-outline-primary.my-2.my-sm-0:hover {
+  background-color: white; 
+  color: #EB5C29; 
+}
+
+.custom-card {
+  transition: transform .2s;
+  border-radius: 15px;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+}
+.card-container {
+  color: black;
+}
+.btn-custom {
+  background-color: white;
+  color: #EB5C29;
+  border: none;
+  transition: background-color .2s, border-color .2s, color .2s;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom:hover {
+  background-color: #EB5C29;
+  color: white;
+}
+
+

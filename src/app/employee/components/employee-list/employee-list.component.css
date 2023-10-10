@@ -1,0 +1,88 @@
+h1 {
+  font-weight: 700;
+}
+h1,
+h2 {
+  text-align: center;
+}
+
+.container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.row {
+  margin: 30px;
+}
+
+.search-box {
+  border-radius: 20px;
+  transition: all 0.3s;
+  border: 2px solid #eb5c29;
+}
+
+.search-box:focus {
+  box-shadow: 0 0 10px rgba(235, 92, 41, 0.5);
+  border-color: #ff9902;
+}
+
+.employee-card {
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  margin: 0 15px;
+}
+
+.employee-card .employee-image {
+  height: 250px;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+.employee-card:hover .employee-image {
+  opacity: 0.8;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(50%);
+  transition: transform 0.3s;
+  border-top: 1px solid #eb5c29;
+}
+
+.employee-card:hover .card-content {
+  transform: translateY(15%);
+}
+
+.view-details-btn {
+  display: none;
+  margin-top: 0.3rem;
+  border-radius: 25px;
+  background-color: #eb5c29;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.employee-card:hover .view-details-btn {
+  display: block;
+}
+
+.view-details-btn:hover {
+  background-color: #ff9902;
+}
+
+.view-details-btn:active {
+  background-color: #cd3d09;
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+

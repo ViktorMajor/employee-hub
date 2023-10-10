@@ -1,0 +1,6 @@
+/* styles.css vagy styles.scss */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  font-family: 'Roboto', sans-serif;
+}

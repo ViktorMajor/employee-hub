@@ -1,0 +1,57 @@
+<div class="container mt-3">
+  <h1 class="mb-3">Employee List</h1>
+  <input
+    type="text"
+    class="form-control search-box my-5"
+    placeholder="Keresés alkalmazott neve alapján..."
+    [(ngModel)]="searchTerm"
+  />
+
+  <div *ngIf="!searchTerm">
+    <div *ngFor="let department of getObjectKeys(groupedEmployees)">
+      <h2 class="m-3">{{ department }}</h2>
+      <hr class="m-1" />
+      <div class="row justify-content-sm-evenly">
+        <div
+          class="col-12 col-md-3 mb-3"
+          *ngFor="let employee of groupedEmployees[department]"
+        >
+          <div class=" employee-card ">
+            <a [routerLink]="['/', employee.id]">
+              <img
+                [src]="employee.image"
+                alt="{{ employee.name }}"
+                class="card-img-top employee-image"
+              />
+            </a>
+            <div class="card-content">
+              <h5 class="card-title">{{ employee.name }}</h5>
+              <h6 class="card-subtitle">{{ employee.department }}</h6>
+              <a [routerLink]="['/', employee.id]" class="btn view-details-btn"
+                >View Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- Keresési eredmények -->
+<div *ngIf="searchTerm">
+  <div class="row justify-content-sm-evenly">
+    <div class="col-12 col-md-3 mb-3" *ngFor="let employee of getFilteredEmployeesArray()">
+      <div class="card employee-card shadow-sm">
+        <a [routerLink]="['/', employee.id]">
+          <img [src]="employee.image" alt="{{ employee.name }}" class="card-img-top employee-image" />
+        </a>
+        <div class="card-content">
+          <h5 class="card-title">{{ employee.name }}</h5>
+          <h6 class="card-subtitle">{{ employee.department }}</h6>
+          <a [routerLink]="['/', employee.id]" class="btn view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
