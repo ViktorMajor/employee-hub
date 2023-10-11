@@ -26,6 +26,7 @@ export class EmployeeListComponent implements OnInit {
     });
   }
   
+  
   getFilteredEmployeesArray(): Employee[] {
     return this.employeeService.getFilteredEmployeesArray(this.groupedEmployees, this.searchTerm);
   }

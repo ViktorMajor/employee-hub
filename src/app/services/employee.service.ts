@@ -298,6 +298,7 @@ export class EmployeeService {
     this.employees$.next([...this.employees]);
     return of([...this.employees]);
   }
+  
   groupByDepartment(employees: Employee[]): { [department: string]: Employee[] } {
     let groupedEmployees: { [department: string]: Employee[] } = {};
     employees.forEach((employee) => {

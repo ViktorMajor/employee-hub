@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Employee } from "src/app/model/employee.model";
 import { EmployeeService } from "src/app/services/employee.service";
 import { Router } from "@angular/router";
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: "app-employee-details",
@@ -23,14 +24,13 @@ export class EmployeeDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params) => {
-      this.employeeService
-        .getEmployeeById(Number(params.get("id")))
-        .subscribe((employee) => {
-          this.employee = employee;
-        });
+    this.activatedRoute.paramMap.pipe(
+      switchMap(params => this.employeeService.getEmployeeById(Number(params.get("id"))))
+    ).subscribe(employee => {
+      this.employee = employee;
     });
   }
+  
   deleteEmployee(): void {
     if (
       this.employee &&
