@@ -10,8 +10,9 @@
 
           <p class="">{{ employee?.description }}</p>
 
+          <button (click)="onEditClick()">Edit</button>
           
-          <div class="row">
+          <div class="row" *ngIf="!isEditing; else editingEmployee">
               <div class="col-md-6">
                   <div class="details-section mb-4">
                       <strong>Email:</strong>
@@ -71,6 +72,12 @@
                   </div>
               </div>
           </div>
+          <ng-template #editingEmployee>
+                <div>
+                    <!-- <EditEmployeeComponent ></EditEmployeeComponent> -->
+                    employee editing
+                </div>
+          </ng-template>
       </div>
   </div>
 </div>

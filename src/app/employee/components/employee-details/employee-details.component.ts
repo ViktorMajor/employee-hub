@@ -17,11 +17,18 @@ export class EmployeeDetailsComponent implements OnInit {
 
   employee: Employee | undefined;
 
+  public isEditing: boolean = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private employeeService: EmployeeService,
     private router: Router
   ) {}
+
+  public onEditClick(): void {
+    this.isEditing = !this.isEditing;
+  }
+
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.pipe(
