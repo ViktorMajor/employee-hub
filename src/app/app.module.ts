@@ -7,6 +7,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HubCommonModule } from "./common/common.module";
 import { HomeComponent } from "./common/components/home/home.component";
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -18,6 +19,7 @@ import { HomeComponent } from "./common/components/home/home.component";
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
