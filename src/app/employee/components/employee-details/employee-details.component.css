@@ -1,108 +1,72 @@
 .container {
-  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
+  background-color: #f8f9fa;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.btn-secondary {
-  background-color: #EB5C29;
-  border-color: #EB5C29;
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.action-btn.back-btn {
+  background-color: #666;
   color: white;
-  transition: background-color .2s, border-color .2s;
 }
 
-.btn-secondary:hover {
-  background-color: #FF9902;
-  border-color: #FF9902;
+.action-btn.delete-btn {
+  background-color: #d9534f;
+  color: white;
 }
 
-.card {
-  border: none;
+.action-btn.edit-btn {
+  background-color: #5bc0de;
+  color: white;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: #fff;
   border-radius: 10px;
-  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .profile-image {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0 auto;
-  border: 5px solid #EB5C29;
+  margin-bottom: 1rem;
 }
 
-.details-section {
-  margin-bottom: 20px;
+.profile-content, .edit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.details-section span, .details-section input {
-  margin-left: 10px;
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-
-.details-section input {
-  border: 2px solid #EB5C29;
-  border-radius: 20px;
-  padding: 5px 15px;
-  transition: border-color 0.3s;
-  animation: fadeIn 0.3s forwards;
-  
-}
-
-.details-section input:focus {
-  border-color: #FF9902;
-}
-
-
-
-
-
-.details-section span {
-  cursor: pointer;
-  color: #FF9902;  transition: color 0.3s, text-decoration 0.3s;
-  text-decoration: underline;
-  position: relative; 
-  padding-right: 15px; 
-  
-}
-
-.details-section span:hover {
-  color: #FF9902;
-  background-color: rgba(255, 153, 2, 0.1); 
-}
-
-/* Ceruza ikon stílusa */
-.details-section span::after {
-  content: "\270E"; 
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #EB5C29;
-  transition: color 0.3s;
-}
-
-.details-section span:hover::after {
-  color: #FF9902;
-}
-
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-

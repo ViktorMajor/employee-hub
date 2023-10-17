@@ -1,83 +1,54 @@
 <div class="container mt-4">
-  <a routerLink="/employees" class="btn btn-secondary m-0">Back to List</a>
+  <div class="action-buttons">
+    <a routerLink="/employees" class="btn action-btn back-btn">Back to List</a>
+    <a (click)="deleteEmployee()" class="btn action-btn delete-btn">Delete Employee</a>
+    <button class="btn action-btn edit-btn" (click)="onEditClick()">Edit</button>
+  </div>
   
-
-  <div class="card mt-3 shadow-sm">
-      <div class="card-body text-center">
-          <img [src]="employee?.image" alt="{{ employee?.name }}" class="profile-image mb-3">
-          <h3 class="card-title mb-4">{{ employee?.name }}</h3>
-          <a (click)="deleteEmployee()" class="btn btn-danger m-2">Delete Employee</a>
-
-          <p class="">{{ employee?.description }}</p>
-
-          <button (click)="onEditClick()">Edit</button>
-          
-          <div class="row" *ngIf="!isEditing; else editingEmployee">
-              <div class="col-md-6">
-                  <div class="details-section mb-4">
-                      <strong>Email:</strong>
-                      <span *ngIf="editingField !== 'email'" (click)="startEditing('email')">{{ employee?.email }}</span>
-                      <input *ngIf="editingField === 'email' && employee" [(ngModel)]="employee.email" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Phone:</strong>
-                      <span *ngIf="editingField !== 'phone'" (click)="startEditing('phone')">{{ employee?.phone }}</span>
-                      <input *ngIf="editingField === 'phone' && employee" [(ngModel)]="employee.phone" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Birth Date:</strong>
-                      <span *ngIf="editingField !== 'birthDate'" (click)="startEditing('birthDate')">{{ employee?.birthDate }}</span>
-                      <input *ngIf="editingField === 'birthDate' && employee" [(ngModel)]="employee.birthDate" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Education:</strong>
-                      <span *ngIf="editingField !== 'education'" (click)="startEditing('education')">{{ employee?.education }}</span>
-                      <input *ngIf="editingField === 'education' && employee" [(ngModel)]="employee.education" (blur)="stopEditing()" />
-                  </div>
-              </div>
-
-              <!-- Jobb oldali hasáb -->
-              <div class="col-md-6">
-                  <div class="details-section mb-4">
-                      <strong>Department:</strong>
-                      <span *ngIf="editingField !== 'department'" (click)="startEditing('department')">{{ employee?.department }}</span>
-                      <input *ngIf="editingField === 'department' && employee" [(ngModel)]="employee.department" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Job Title:</strong>
-                      <span *ngIf="editingField !== 'jobTitle'" (click)="startEditing('jobTitle')">{{ employee?.jobTitle }}</span>
-                      <input *ngIf="editingField === 'jobTitle' && employee" [(ngModel)]="employee.jobTitle" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Salary:</strong>
-                      <span *ngIf="editingField !== 'salary'" (click)="startEditing('salary')">{{ employee?.salary }}</span>
-                      <input *ngIf="editingField === 'salary' && employee" [(ngModel)]="employee.salary" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Home Office:</strong>
-                      <span *ngIf="editingField !== 'homeOffice'" (click)="startEditing('homeOffice')">{{ employee?.homeOffice }}</span>
-                      <input *ngIf="editingField === 'homeOffice' && employee" [(ngModel)]="employee.homeOffice" (blur)="stopEditing()" />
-                  </div>
-
-                  <div class="details-section mb-4">
-                      <strong>Start Date:</strong>
-                      <span *ngIf="editingField !== 'startDate'" (click)="startEditing('startDate')">{{ employee?.startDate }}</span>
-                      <input *ngIf="editingField === 'startDate' && employee" [(ngModel)]="employee.startDate" (blur)="stopEditing()" />
-                  </div>
-              </div>
-          </div>
-          <ng-template #editingEmployee>
-                <div>
-                    <!-- <EditEmployeeComponent ></EditEmployeeComponent> -->
-                    employee editing
-                </div>
-          </ng-template>
+  <div class="profile-card">
+    <div class="profile-header">
+      <img [src]="employee?.image" alt="{{ employee?.name }}" class="profile-image" />
+      <h3>{{ employee?.name }}</h3>
+    </div>
+    
+    <div class="profile-content" *ngIf="!isEditing; else editingEmployee">
+      <div class="info-section">
+        <strong>Email:</strong>
+        <p>{{ employee?.email }}</p>
       </div>
+      <div class="info-section">
+        <strong>Phone:</strong>
+        <p>{{ employee?.phone }}</p>
+      </div>
+      <div class="info-section">
+        <strong>Birth Date:</strong>
+        <p>{{ employee?.birthDate | date }}</p>
+      </div>
+      <div class="info-section">
+        <strong>Education:</strong>
+        <p>{{ employee?.education }}</p>
+      </div>
+      <div class="info-section">
+        <strong>Department:</strong>
+        <p>{{ employee?.department }}</p>
+      </div>
+      <div class="info-section">
+        <strong>Salary:</strong>
+        <p>{{ employee?.salary }}</p>
+      </div>
+      <div class="info-section">
+        <strong>Home Office:</strong>
+        <p>{{ employee?.homeOffice }}</p>
+      </div>
+      <div class="info-section">
+        <strong>Start Date:</strong>
+        <p>{{ employee?.startDate | date }}</p>
+      </div>
+    </div>
+    <ng-template #editingEmployee>
+      <div class="edit-section">
+        <app-edit-employee (editFinished)="isEditing = false"></app-edit-employee>
+      </div>
+    </ng-template>
   </div>
 </div>

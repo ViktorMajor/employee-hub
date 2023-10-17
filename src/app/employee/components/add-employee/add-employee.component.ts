@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { EmployeeService } from "src/app/services/employee.service";
 import { Router } from "@angular/router";
-import { Subscription } from 'rxjs';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-add-employee",
@@ -30,24 +30,25 @@ export class AddEmployeeComponent {
       salary: [""],
       homeOffice: [""],
       education: [""],
-      jobTitle: [""]
+      jobTitle: [""],
     });
   }
 
   onSubmit() {
     if (this.employeeForm.valid) {
       const newEmployee = this.employeeForm.value;
-      const sub = this.employeeService.addEmployee(newEmployee).subscribe(() => {
-        this.router.navigate(["/employees"]);
-      });
+      const sub = this.employeeService
+        .addEmployee(newEmployee)
+        .subscribe(() => {
+          this.router.navigate(["/employees"]);
+        });
       this.subscriptions.push(sub);
     } else {
-      alert('Please fill out the required fields!');
+      alert("Please fill out the required fields!");
     }
   }
-  
+
   ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
-  
 }

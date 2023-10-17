@@ -296,6 +296,7 @@ export class EmployeeService {
     const index = this.employees.findIndex((t) => t.id === employee.id);
     this.employees[index] = employee;
     this.employees$.next([...this.employees]);
+    console.log("Service: Index:", index, "Employee:", employee)
     return of([...this.employees]);
   }
   

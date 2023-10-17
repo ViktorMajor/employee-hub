@@ -1,0 +1,49 @@
+<div class="edit-container">
+  <h2>Edit Employee Details</h2>
+  <form [formGroup]="editEmployeeForm" (ngSubmit)="onSave()">
+      
+      <div class="details-section mb-4">
+          <label for="email"><strong>Email</strong></label>
+          <input type="email" id="email" formControlName="email" class="edit-input">
+      </div>
+      
+      <div class="details-section mb-4">
+          <label for="phone"><strong>Phone:</strong></label>
+          <input type="tel" id="phone" formControlName="phone" class="edit-input">
+      </div>
+
+      <div class="details-section mb-4">
+          <label for="birthDate"><strong>Birth Date:</strong></label>
+          <input type="date" id="birthDate" formControlName="birthDate" class="edit-input">
+      </div>
+
+      <div class="details-section mb-4">
+          <label for="education"><strong>Education:</strong></label>
+          <input type="text" id="education" formControlName="education" class="edit-input">
+      </div>
+
+      <div class="details-section mb-4">
+          <label for="department"><strong>Department:</strong></label>
+          <input type="text" id="department" formControlName="department" class="edit-input">
+      </div>
+
+      <div class="details-section mb-4">
+          <label for="salary"><strong>Salary:</strong></label>
+          <input type="text" id="salary" formControlName="salary" class="edit-input">
+      </div>
+
+      <div class="details-section mb-4">
+          <label for="homeOffice"><strong>Home Office:</strong></label>
+          <input type="text" id="homeOffice" formControlName="homeOffice" class="edit-input">
+      </div>
+
+      <div class="details-section mb-4">
+          <label for="startDate"><strong>Start Date:</strong></label>
+          <input type="date" id="startDate" formControlName="startDate" class="edit-input">
+      </div>
+
+      <div class="action-buttons">
+          <button type="submit" class="btn action-btn save-btn">Save Changes</button>
+      </div>
+  </form>
+</div>

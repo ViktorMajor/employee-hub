@@ -1,0 +1,34 @@
+.edit-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.edit-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #EB5C29;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.edit-input:focus {
+    border-color: #FF9902;
+    outline: none;
+}
+
+.action-btn {
+    background-color: #EB5C29;
+    border-color: #EB5C29;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color .2s, border-color .2s;
+}
+
+.action-btn:hover {
+    background-color: #FF9902;
+    border-color: #FF9902;
+}

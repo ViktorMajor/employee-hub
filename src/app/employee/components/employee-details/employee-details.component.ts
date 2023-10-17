@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Employee } from "src/app/model/employee.model";
 import { EmployeeService } from "src/app/services/employee.service";
-import { Router } from "@angular/router";
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -14,20 +13,14 @@ export class EmployeeDetailsComponent implements OnInit {
   //to do pagination
 
   editingField: string | null = null;
-
   employee: Employee | undefined;
-
   public isEditing: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private employeeService: EmployeeService,
     private router: Router
-  ) {}
-
-  public onEditClick(): void {
-    this.isEditing = !this.isEditing;
-  }
+  ) { }
 
 
   ngOnInit(): void {
@@ -42,24 +35,14 @@ export class EmployeeDetailsComponent implements OnInit {
     if (
       this.employee &&
       confirm(`Are you sure you want to delete ${this.employee.name} profile?`)
-    )
-      this.employeeService
-        .deleteEmployeeById(this.employee.id)
-        .subscribe(() => {
-          console.log("Employee deleted successfully!");
-          this.router.navigate(["/employees"]);
-        });
-  }
-
-  startEditing(field: string): void {
-    this.editingField = field;
-  }
-  stopEditing(): void {
-    this.editingField = null;
-    if (this.employee) {
-      this.employeeService.updateEmployee(this.employee).subscribe(() => {
-        console.log("Employee updated successfully!");
+    ) {
+      this.employeeService.deleteEmployeeById(this.employee.id).subscribe(() => {
+        console.log("Employee deleted successfully!");
+        this.router.navigate(["/employees"]);
       });
     }
   }
+  onEditClick() {
+    this.isEditing = !this.isEditing
+  } 
 }
