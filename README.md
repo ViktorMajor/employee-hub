@@ -1,6 +1,18 @@
-# SimpleEmployeeBook
+# EmployeeHub
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+
+## Project Description
+
+EmployeeHub is a web-based application designed for small to medium-sized businesses. Its primary function is to help these enterprises effortlessly manage and keep track of their employee data.
+
+## Installation Guide
+
+
+1. Clone the repository from GitHub.
+2. Navigate to the project directory.
+3. Run npm install to install all necessary dependencies.
+4. Once completed, you can now follow the other commands mentioned in the document to run and build the project.
 
 ## Development server
 
