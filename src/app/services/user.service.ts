@@ -27,9 +27,9 @@ export class UserService {
 
     return of({
       id: 1,
-      userName: "József",
-      email: "pallagijoe@gmail.com",
-      password: "J",
+      userName: "Viktor",
+      email: "majorviktor95@gmail.com",
+      password: "V",
       token: "1234567890",
       role: "admin",
     });
